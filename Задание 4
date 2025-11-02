@@ -1,0 +1,48 @@
+﻿using System;
+
+namespace FoodApp
+{
+    class Food
+    {
+        public virtual void Eat()
+        {
+            Console.WriteLine("Едим...");
+        }
+    }
+
+    class Pizza : Food
+    {
+        public override void Eat()
+        {
+            Console.WriteLine("Едим пиццу!");
+        }
+    }
+
+    class Burger : Food
+    {
+        public override void Eat()
+        {
+            Console.WriteLine("Едим бургер!");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Food[] lunch = new Food[]
+            {
+                new Pizza(),
+                new Burger(),
+                new Food()
+            };
+
+            foreach (var foodItem in lunch)
+            {
+                foodItem.Eat();
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
