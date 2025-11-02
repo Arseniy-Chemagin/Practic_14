@@ -1,0 +1,48 @@
+using System;
+
+namespace MessagesApp
+{
+    class Message
+    {
+        public virtual void Send()
+        {
+            Console.WriteLine("Сообщение отправлено.");
+        }
+    }
+
+    class Email : Message
+    {
+        public override void Send()
+        {
+            Console.WriteLine("Email отправлен!");
+        }
+    }
+
+    class SMS : Message
+    {
+        public override void Send()
+        {
+            Console.WriteLine("SMS отправлено!");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Message[] messages = new Message[]
+            {
+                new Email(),
+                new SMS(),
+                new Message()
+            };
+
+            foreach (var m in messages)
+            {
+                m.Send();
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
