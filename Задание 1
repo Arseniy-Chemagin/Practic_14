@@ -1,0 +1,49 @@
+using System;
+
+namespace MusicalInstruments
+{
+    class Instrument
+    {
+        public virtual void Play()
+        {
+            Console.WriteLine("Играет музыка...");
+        }
+    }
+
+    class Guitar : Instrument
+    {
+        public override void Play()
+        {
+            Console.WriteLine("Брень-брень!");
+        }
+    }
+
+    class Drum : Instrument
+    {
+        public override void Play()
+        {
+            Console.WriteLine("Бум-бум!");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Instrument[] band = new Instrument[]
+            {
+                new Guitar(),
+                new Drum(),
+                new Instrument()
+            };
+
+            foreach (var instrument in band)
+            {
+                instrument.Play();
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
+
